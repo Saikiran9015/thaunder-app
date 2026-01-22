@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const path = require('path');
 const socketIo = require('socket.io');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const deviceRoutes = require('./src/api/device.routes');
@@ -30,6 +31,16 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// MongoDB Connection
+const MONGODB_URI = process.env.MONGODB_URI;
+if (MONGODB_URI) {
+  mongoose.connect(MONGODB_URI)
+    .then(() => logger.info('🍃 Connected to MongoDB Successfully'))
+    .catch((err) => logger.error('❌ MongoDB Connection Error:', err));
+} else {
+  logger.warn('⚠️ MONGODB_URI not found in environment variables. Running without MongoDB.');
+}
 
 // Initialize Device Manager
 const deviceManager = new DeviceManager(io);
