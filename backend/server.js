@@ -37,7 +37,13 @@ const MONGODB_URI = process.env.MONGODB_URI;
 if (MONGODB_URI) {
   mongoose.connect(MONGODB_URI)
     .then(() => logger.info('🍃 Connected to MongoDB Successfully'))
-    .catch((err) => logger.error('❌ MongoDB Connection Error:', err));
+    .catch((err) => {
+      logger.error('❌ MongoDB Connection Error:', err.message);
+      // Suppress crash on Vercel if DB fails
+      if (process.env.VERCEL) {
+        logger.warn('Skipping crash because we are on Vercel.');
+      }
+    });
 } else {
   logger.warn('⚠️ MONGODB_URI not found in environment variables. Running without MongoDB.');
 }

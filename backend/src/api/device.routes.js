@@ -7,6 +7,13 @@ const router = express.Router();
  */
 router.get('/', async (req, res) => {
     try {
+        if (process.env.VERCEL) {
+            return res.json({
+                success: true,
+                devices: [],
+                message: 'Hardware scanning is disabled in cloud environment.'
+            });
+        }
         const devices = await req.deviceManager.scanDevices();
         res.json({
             success: true,
