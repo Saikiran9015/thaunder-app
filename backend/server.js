@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const http = require('http');
+const path = require('path');
 const socketIo = require('socket.io');
 require('dotenv').config();
 
@@ -28,7 +29,7 @@ const io = socketIo(server, {
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize Device Manager
 const deviceManager = new DeviceManager(io);
