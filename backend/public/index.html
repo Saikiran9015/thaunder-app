@@ -5,39 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThunderCut | Professional Cutting Software</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
+            --accent: #ff007a;
             --dark: #0f172a;
+            --darker: #020617;
             --light: #f8fafc;
+            --gray: #94a3b8;
         }
 
         body {
             font-family: 'Outfit', sans-serif;
             margin: 0;
-            background-color: var(--dark);
+            background-color: var(--darker);
             color: var(--light);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
+        /* Hero Section Styling */
         .navbar {
-            padding: 2rem;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(15px);
             position: fixed;
             width: 100%;
-            z-index: 100;
+            z-index: 1000;
             box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            letter-spacing: -1px;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -51,72 +58,152 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
             padding: 0 1rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.1;
+            top: 20%;
+            left: 20%;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.1;
             animation: fadeInDown 1s ease;
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin-bottom: 2rem;
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin-bottom: 3rem;
             animation: fadeIn 1.5s ease;
         }
 
+        /* Buttons */
         .btn {
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             font-size: 1.1rem;
             font-weight: 600;
-            border-radius: 50px;
+            border-radius: 12px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-primary {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: white;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 210, 255, 0.4);
         }
 
-        .features {
-            padding: 5rem 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Detailed Info Section */
+        section {
+            padding: 8rem 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .feature-card {
-            background: #1e293b;
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid #334155;
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #0f172a;
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: 0.3s;
         }
 
-        .feature-card:hover {
+        .card:hover {
             border-color: var(--primary);
-            transform: scale(1.02);
+            background: #1e293b;
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Installation Steps */
+        .steps {
+            background: #020617;
+            border-radius: 32px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .step-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--primary);
+            color: var(--darker);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: #000;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
 
             to {
@@ -134,44 +221,104 @@
                 opacity: 1;
             }
         }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 100px;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .steps {
+                padding: 2rem;
+            }
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar">
         <div class="logo">THUNDERCUT</div>
-        <div>
-            <a href="/api/download/exe" class="btn btn-primary"
-                style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Download .EXE</a>
-        </div>
+        <a href="/api/download/exe" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Get
+            App</a>
     </nav>
 
     <section class="hero">
-        <h1>Precision Cutting. <br><span style="color: var(--primary)">Simplified.</span></h1>
-        <p>The ultimate control software for professional vinyl and mobile skin plotters. High-performance G-code
-            generation and massive template library.</p>
-        <div class="cta-group">
-            <a href="/api/download/exe" class="btn btn-primary">Download Installer (.exe)</a>
+        <h1>Master Every Cut with Precision.</h1>
+        <p>ThunderCut is a high-performance desktop application for vinyl cutting plotters. Designed for mobile skins,
+            protective films, and signs.</p>
+        <div class="cta">
+            <a href="/api/download/exe" class="btn btn-primary">
+                Download for Windows (.exe)
+            </a>
+            <div style="margin-top: 1.5rem; color: var(--gray); font-size: 0.9rem;">
+                v1.0.4 | Size: ~85MB | Recommended for Windows 10/11
+            </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>🎯 1000+ Templates</h3>
-            <p>Ready-to-cut templates for all major mobile brands and models.</p>
+    <section id="features">
+        <div class="section-title">
+            <h2>Why Choose ThunderCut?</h2>
+            <p>Our software bridges the gap between design and physical hardware.</p>
         </div>
-        <div class="feature-card">
-            <h3>⚡ High Performance</h3>
-            <p>Optimized G-code processing for smooth and fast cutting operations.</p>
-        </div>
-        <div class="feature-card">
-            <h3>🔌 Plug & Play</h3>
-            <p>Auto-detects your cutting plotter hardware instantly via USB.</p>
+        <div class="features-grid">
+            <div class="card">
+                <h3>💎 Smart Templates</h3>
+                <p>Access over 10,000+ mobile and laptop templates. Automatically updated cloud library ensures you
+                    never miss a new model.</p>
+            </div>
+            <div class="card">
+                <h3>🚀 Speed Optimized</h3>
+                <p>Custom G-code engine designed for maximum smoothness. Reduces hardware vibration and extends blade
+                    life by 30%.</p>
+            </div>
+            <div class="card">
+                <h3>🛠️ Full Control</h3>
+                <p>Adjust blade pressure, cutting speed, and multi-pass settings in real-time. Native support for most
+                    USB and Serial plotters.</p>
+            </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 3rem; color: #64748b; font-size: 0.9rem;">
-        &copy; 2026 ThunderCut Technologies. All rights reserved.
+    <section id="how-to">
+        <div class="steps">
+            <div class="section-title">
+                <h2>Installation & Setup</h2>
+            </div>
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Download the Installer</h3>
+                    <p>Click the download button above to get the `ThunderCut_Installer.exe`. This bundled package
+                        contains both the core engine and the interface.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Run & Permissions</h3>
+                    <p>Double-click the installer. If Windows SmartScreen appears, click "More Info" and "Run Anyway".
+                        The software requires administrator rights to access Serial ports.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Connect Your Hardware</h3>
+                    <p>Plug in your cutting plotter via USB. Open ThunderCut, go to 'Device Settings', and click
+                        'Auto-Detect'. You're ready to start cutting!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">THUNDERCUT</div>
+        <p style="margin: 1.5rem 0;">Professional Grade Hardware Solutions</p>
+        <div style="color: var(--gray); font-size: 0.8rem;">
+            &copy; 2026 ThunderCut Technologies. Designed for excellence.
+        </div>
     </footer>
 </body>
 
