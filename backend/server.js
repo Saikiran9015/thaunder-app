@@ -35,7 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // MongoDB Connection
 const MONGODB_URI = process.env.MONGODB_URI;
 if (MONGODB_URI) {
-  mongoose.connect(MONGODB_URI)
+  mongoose.connect(MONGODB_URI, {
+    serverSelectionTimeoutMS: 5000 // 5 seconds timeout
+  })
     .then(() => logger.info('🍃 Connected to MongoDB Successfully'))
     .catch((err) => {
       logger.error('❌ MongoDB Connection Error:', err.message);

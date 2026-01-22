@@ -9,7 +9,8 @@ const VectorProcessor = require('../services/vector-processor');
 // Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, process.env.UPLOAD_DIR || './uploads');
+        const uploadDir = process.env.VERCEL ? '/tmp' : (process.env.UPLOAD_DIR || './uploads');
+        cb(null, uploadDir);
     },
     filename: (req, file, cb) => {
         const uniqueName = `${uuidv4()}${path.extname(file.originalname)}`;

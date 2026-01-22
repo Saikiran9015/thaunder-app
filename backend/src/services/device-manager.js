@@ -1,7 +1,18 @@
-const { SerialPort } = require('serialport');
-const { ReadlineParser } = require('@serialport/parser-readline');
 const EventEmitter = require('events');
 const logger = require('../utils/logger');
+
+// Lazy load serialport to prevent crashes on Vercel
+let SerialPort;
+let ReadlineParser;
+if (!process.env.VERCEL) {
+    try {
+        const sp = require('serialport');
+        SerialPort = sp.SerialPort;
+        ReadlineParser = require('@serialport/parser-readline').ReadlineParser;
+    } catch (e) {
+        logger.warn('SerialPort modules could not be loaded - Hardware features will be disabled.');
+    }
+}
 
 class DeviceManager extends EventEmitter {
     constructor(io) {
