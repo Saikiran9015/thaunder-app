@@ -1,0 +1,29 @@
+﻿Analyzing flutter-app...                                        
+
+warning - Unused import: '../../data/models/device_model.dart' - lib\business_logic\device_bloc\device_event.dart:2:8 - unused_import
+warning - Unused import: 'dart:typed_data' - lib\data\services\printing_service.dart:2:8 - unused_import
+warning - Unused import: 'package:google_fonts/google_fonts.dart' - lib\main.dart:3:8 - unused_import
+   info - Use 'const' with the constructor to improve performance - lib\main.dart:48:21 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\control_panel.dart:26:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\design_canvas.dart:22:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\design_canvas.dart:75:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\design_canvas.dart:118:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\design_canvas.dart:155:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\sidebar.dart:50:54 - deprecated_member_use
+
+flutter : 10 issues found. 
+(ran in 11.3s)
+At line:1 char:1
++ flutter analyze --no-pub 
+> analyze_results_3.txt 
+2>&1; Get-Content an ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (10 is  
+  sues found. (ran in 11.   
+ 3s):String) [], RemoteE    
+xception
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 

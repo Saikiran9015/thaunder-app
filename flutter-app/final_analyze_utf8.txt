@@ -1,0 +1,20 @@
+﻿Analyzing flutter-app...                                        
+
+   info - Use 'const' with the constructor to improve performance - lib\presentation\widgets\control_panel.dart:81:65 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\presentation\widgets\control_panel.dart:99:65 - prefer_const_constructors
+
+flutter : 2 issues found. 
+(ran in 8.0s)
+At line:1 char:1
++ flutter analyze --no-pub 
+> final_analyze.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (2 iss  
+  ues found. (ran in 8.0s   
+ ):String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 

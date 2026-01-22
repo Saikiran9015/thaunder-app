@@ -1,0 +1,36 @@
+﻿Analyzing flutter-app...                                        
+
+warning - Unused import: '../../data/models/device_model.dart' - lib\business_logic\device_bloc\device_event.dart:2:8 - unused_import
+  error - The argument type 'CardTheme' can't be assigned to the parameter type 'CardThemeData?'.  - lib\core\theme\app_theme.dart:106:18 - argument_type_not_assignable
+  error - The argument type 'CardTheme' can't be assigned to the parameter type 'CardThemeData?'.  - lib\core\theme\app_theme.dart:200:18 - argument_type_not_assignable
+warning - Unused import: 'package:google_fonts/google_fonts.dart' - lib\main.dart:3:8 - unused_import
+   info - Use 'const' with the constructor to improve performance - lib\main.dart:47:72 - prefer_const_constructors
+warning - Unused import: 'package:flutter_bloc/flutter_bloc.dart' - lib\presentation\screens\main_screen.dart:2:8 - unused_import
+warning - Unused import: '../../business_logic/device_bloc/device_bloc.dart' - lib\presentation\screens\main_screen.dart:3:8 - unused_import
+warning - Unused import: '../../business_logic/design_bloc/design_bloc.dart' - lib\presentation\screens\main_screen.dart:4:8 - unused_import
+warning - Unused import: '../../business_logic/template_bloc/template_bloc.dart' - lib\presentation\screens\main_screen.dart:5:8 - unused_import
+   info - The import of '../../business_logic/device_bloc/device_event.dart' is unnecessary because all of the used elements are also provided by the import of '../../business_logic/device_bloc/device_bloc.dart' - lib\presentation\widgets\control_panel.dart:4:8 - unnecessary_import
+   info - The import of '../../business_logic/device_bloc/device_state.dart' is unnecessary because all of the used elements are also provided by the import of '../../business_logic/device_bloc/device_bloc.dart' - lib\presentation\widgets\control_panel.dart:5:8 - unnecessary_import
+   info - The import of '../../business_logic/template_bloc/template_state.dart' is unnecessary because all of the used elements are also provided by the import of '../../business_logic/template_bloc/template_bloc.dart' - lib\presentation\widgets\design_canvas.dart:4:8 - unnecessary_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\design_canvas.dart:20:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\design_canvas.dart:96:51 - deprecated_member_use
+   info - The import of '../../business_logic/template_bloc/template_event.dart' is unnecessary because all of the used elements are also provided by the import of '../../business_logic/template_bloc/template_bloc.dart' - lib\presentation\widgets\sidebar.dart:4:8 - unnecessary_import
+   info - The import of '../../business_logic/template_bloc/template_state.dart' is unnecessary because all of the used elements are also provided by the import of '../../business_logic/template_bloc/template_bloc.dart' - lib\presentation\widgets\sidebar.dart:5:8 - unnecessary_import
+   info - The import of '../../business_logic/design_bloc/design_event.dart' is unnecessary because all of the used elements are also provided by the import of '../../business_logic/design_bloc/design_bloc.dart' - lib\presentation\widgets\toolbar.dart:5:8 - unnecessary_import
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+
+flutter : 18 issues found. 
+(ran in 2.8s)
+At line:1 char:1
++ flutter analyze --no-pub 
+> analyze_results.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (18 is  
+  sues found. (ran in 2.8   
+ s):String) [], RemoteEx    
+ception
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
