@@ -93,12 +93,21 @@ server.listen(PORT, async () => {
   const fs = require('fs');
   const uploadDir = process.env.UPLOAD_DIR || './uploads';
   if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-    logger.info(`📁 Created uploads directory: ${uploadDir}`);
+    try {
+      fs.mkdirSync(uploadDir, { recursive: true });
+      logger.info(`📁 Created uploads directory: ${uploadDir}`);
+    } catch (e) {
+      logger.warn(`Could not create uploads dir (likely read-only cloud): ${e.message}`);
+    }
   }
 
-  // Auto-detect devices on startup
-  deviceManager.scanDevices();
+  // Hardware check: Only scan devices if NOT on Vercel
+  if (!process.env.VERCEL) {
+    logger.info('💻 Local environment detected: Initializing hardware drivers...');
+    deviceManager.scanDevices();
+  } else {
+    logger.info('☁️ Cloud environment (Vercel) detected: Hardware scanning disabled.');
+  }
 });
 
 // Graceful shutdown
